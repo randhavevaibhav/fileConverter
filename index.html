@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>File Converter</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+
+  </head>
+  <body>
+     <div id="main-div">
+        <div id="pdf-to-word">
+            <button class = "buttonPtW" onclick="openTabPDFToWord()"> <span>PDF To WORD</span></button>
+        </div>
+        <div id="word-to-pdf">
+            <button class = "buttonWtP" onclick="openTabWordToPDF()"><span>WORD to PDF</span></button>
+        </div>
+     </div>
+    
+    
+  
+  <script>
+    function openTabPDFToWord() {
+    window.open("https://www.ilovepdf.com/pdf_to_word", "_self");
+    }
+    function openTabWordToPDF() {
+    window.open("https://www.ilovepdf.com/word_to_pdf", "_self");
+    }
+  </script>
+
+  </body>
+</html>
