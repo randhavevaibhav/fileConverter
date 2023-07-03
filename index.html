@@ -11,29 +11,37 @@
   <body>
      <div id="main-div">
         <div id="pdf-to-word">
-            <button class = "buttonPtW" onclick="openTabPDFToWord()"> <span>PDF To WORD</span></button>
+            <button class = "buttonPtW" onclick="openTab('PDFToWord')"> <span>PDF To WORD</span></button>
         </div>
         <div id="word-to-pdf">
-            <button class = "buttonWtP" onclick="openTabWordToPDF()"><span>WORD to PDF</span></button>
+            <button class = "buttonWtP" onclick="openTab('WordToPDF')"><span>WORD to PDF</span></button>
         </div>
         <div id="pdf-compressor">
-          <button class = "buttonPDFC" onclick="openTabPDFCompressor()"><span>PDF Compressor</span></button>
+          <button class = "buttonPDFC" onclick="openTab('PDFCompressor')"><span>PDF Compressor</span></button>
       </div>
+    
      </div>
     
     
   
   <script>
-    function openTabPDFToWord() {
-    window.open("https://www.ilovepdf.com/pdf_to_word", "_self");
-    }
-    function openTabWordToPDF() {
-    window.open("https://www.ilovepdf.com/word_to_pdf", "_self");
-    }
-    function openTabPDFCompressor()
+    function openTab(tabName)
     {
-      window.open("https://www.ilovepdf.com/compress_pdf", "_self");
+      switch(tabName)
+      {
+        case 'PDFToWord':
+        window.open("https://www.ilovepdf.com/pdf_to_word", "_self");
+          break;
+        case 'WordToPDF':
+        window.open("https://www.ilovepdf.com/word_to_pdf", "_self");
+          break;
+        case 'PDFCompressor':
+        window.open("https://www.ilovepdf.com/compress_pdf", "_self");
+          break;
+          default:  alert(tabName+" is not a valid tab name !!");
+      }
     }
+  
   </script>
 
   </body>
