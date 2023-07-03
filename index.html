@@ -11,14 +11,17 @@
   <body>
      <div id="main-div">
         <div id="pdf-to-word">
-            <button class = "buttonPtW" onclick="openTab('PDFToWord')"> <span>PDF To WORD</span></button>
+            <button class = "buttonPtW buttonStyles" onclick="openTab('PDFToWord')"> <span>PDF To WORD</span></button>
         </div>
         <div id="word-to-pdf">
-            <button class = "buttonWtP" onclick="openTab('WordToPDF')"><span>WORD to PDF</span></button>
+            <button class = "buttonWtP buttonStyles" onclick="openTab('WordToPDF')"><span>WORD to PDF</span></button>
         </div>
         <div id="pdf-compressor">
-          <button class = "buttonPDFC" onclick="openTab('PDFCompressor')"><span>PDF Compressor</span></button>
+          <button class = "buttonPDFC buttonStyles" onclick="openTab('PDFCompressor')"><span>PDF Compressor</span></button>
       </div>
+      <div id="img-compressor">
+        <button class = "buttonIMGC buttonStyles" onclick="openTab('IMGCompressor')"><span>IMG Compressor</span></button>
+    </div>
     
      </div>
     
@@ -37,6 +40,9 @@
           break;
         case 'PDFCompressor':
         window.open("https://www.ilovepdf.com/compress_pdf", "_self");
+          break;
+          case 'IMGCompressor':
+        window.open("https://www.iloveimg.com/compress-image", "_self");
           break;
           default:  alert(tabName+" is not a valid tab name !!");
       }
