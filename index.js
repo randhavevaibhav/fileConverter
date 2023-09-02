@@ -124,6 +124,8 @@ function openTab(tabName)
                 // Add an event listener to the new button for deletion
                 newButton.addEventListener('click', function() {
                     selectButton(checkbox);
+                    editButton.disabled = !checkbox.checked;
+                    openNewTab(data,newButton);
                 });
 
                 // Add an event listener to the checkbox to enable/disable the edit button
@@ -137,6 +139,22 @@ function openTab(tabName)
                 });
             });
         }
+    }
+
+
+    function openNewTab(data,newButton)
+    {
+        if(data.url!="")
+        {
+
+            newButton.onclick = function() {
+                window.open(data.url, '_self');
+            };
+    
+
+
+        }
+       
     }
 
     // Function to edit button details
