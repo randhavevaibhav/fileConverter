@@ -17,7 +17,10 @@ function openTab(tabName)
           default:  alert(tabName+" is not a valid tab name !!");
       }
     }
+   
     let buttonData = []; // Initialize an empty array for button data
+
+    // Function to add a new button with a checkbox
     function addButton() {
         const buttonContainer = document.getElementById('buttonContainer');
         const newButton = document.createElement('button');
@@ -26,15 +29,21 @@ function openTab(tabName)
         const checkbox = document.createElement('input');
         checkbox.type = 'checkbox';
 
+        const editButton = document.createElement('button');
+        editButton.textContent = 'Edit';
+        editButton.style.marginLeft = '10px';
+        editButton.disabled = true;
+
         const buttonDiv = document.createElement('div');
         buttonDiv.className = 'button-container';
         buttonDiv.appendChild(checkbox);
         buttonDiv.appendChild(newButton);
+        buttonDiv.appendChild(editButton);
 
         buttonContainer.appendChild(buttonDiv);
 
         // Add button information to the array
-        buttonData.push({ buttonText: 'New Button', isChecked: false });
+        buttonData.push({ buttonText: 'New Button', isChecked: false, url: '' });
 
         // Save button data to local storage
         saveButtonDataToLocalStorage();
@@ -42,6 +51,16 @@ function openTab(tabName)
         // Add an event listener to the new button for deletion
         newButton.addEventListener('click', function() {
             selectButton(checkbox);
+        });
+
+        // Add an event listener to the checkbox to enable/disable the edit button
+        checkbox.addEventListener('change', function() {
+            editButton.disabled = !checkbox.checked;
+        });
+
+        // Add an event listener to the edit button
+        editButton.addEventListener('click', function() {
+            editButtonDetails(checkbox, newButton);
         });
     }
 
@@ -79,7 +98,7 @@ function openTab(tabName)
 
             // Create buttons from loaded data
             const buttonContainer = document.getElementById('buttonContainer');
-            buttonData.forEach(function(data) {
+            buttonData.forEach(function(data, index) {
                 const newButton = document.createElement('button');
                 newButton.textContent = data.buttonText;
 
@@ -87,10 +106,18 @@ function openTab(tabName)
                 checkbox.type = 'checkbox';
                 checkbox.checked = data.isChecked;
 
+                const editButton = document.createElement('button');
+                editButton.textContent = 'Edit';
+                editButton.style.marginLeft = '10px';
+                if (!data.isChecked) {
+                    editButton.disabled = true;
+                }
+
                 const buttonDiv = document.createElement('div');
                 buttonDiv.className = 'button-container';
                 buttonDiv.appendChild(checkbox);
                 buttonDiv.appendChild(newButton);
+                buttonDiv.appendChild(editButton);
 
                 buttonContainer.appendChild(buttonDiv);
 
@@ -98,7 +125,40 @@ function openTab(tabName)
                 newButton.addEventListener('click', function() {
                     selectButton(checkbox);
                 });
+
+                // Add an event listener to the checkbox to enable/disable the edit button
+                checkbox.addEventListener('change', function() {
+                    editButton.disabled = !checkbox.checked;
+                });
+
+                // Add an event listener to the edit button
+                editButton.addEventListener('click', function() {
+                    editButtonDetails(checkbox, data, newButton);
+                });
             });
+        }
+    }
+
+    // Function to edit button details
+    function editButtonDetails(checkbox, data, button) {
+        if (data) {
+            const newName = prompt('Enter the new button name:', data.buttonText);
+            const newURL = prompt('Enter the URL for the button:', data.url);
+
+            if (newName !== null && newURL !== null) {
+                data.buttonText = newName;
+                data.url = newURL;
+
+                if (button) {
+                    button.textContent = newName;
+                    button.onclick = function() {
+                        window.open(newURL, '_blank');
+                    };
+                }
+
+                // Save the updated button data to local storage
+                saveButtonDataToLocalStorage();
+            }
         }
     }
 
