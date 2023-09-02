@@ -12,12 +12,23 @@ body {
   background-position: center;
   background-size: cover;
 }
-
 #main-div
+{
+display: flex;
+
+flex-direction: column;
+
+
+
+}
+
+
+
+#list-items
 {
     display: flex;
     flex-direction: column;
-    align-items: left;
+    align-items: center;
     height: 100%;
     padding-left: 20px;
 
@@ -126,7 +137,30 @@ span{
     background-color: #F3391D;
     padding:15px 21px;
 
+    
   }
+
+
+
+  #action-buttons
+  {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 50px;
+  }
+  
+
+.buttonAddItem
+{
+  background-color: #03C03C;
+  padding: 10px 10px;
+}
+.buttonDeleteItem
+{
+  background-color: #EF0107;
+  padding: 10px 10px;
+}
 
 
 
@@ -134,7 +168,7 @@ span{
   @media screen and (max-width: 700px) {
 
    
-    #main-div{
+    #list-items{
       display: flex;
       flex-direction: column;
       align-items: center;
