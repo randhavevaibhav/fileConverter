@@ -163,6 +163,30 @@ span{
 }
 
 
+#buttonContainer
+{
+margin-top: 50px;
+  display: flex;
+    align-items: inherit;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.button-container
+{
+  display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  
+
+}
+
+.newButton
+{
+  background-color: #EF0107;
+}
+
 
 
   @media screen and (max-width: 700px) {

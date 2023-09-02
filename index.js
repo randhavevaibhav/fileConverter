@@ -25,6 +25,8 @@ function openTab(tabName)
         const buttonContainer = document.getElementById('buttonContainer');
         const newButton = document.createElement('button');
         newButton.textContent = 'New Button';
+        newButton.className = 'buttonStyles newButton';
+
 
         const checkbox = document.createElement('input');
         checkbox.type = 'checkbox';
