@@ -104,12 +104,12 @@ function openTab(tabName)
 
                 const checkbox = document.createElement('input');
                 checkbox.type = 'checkbox';
-                checkbox.checked = data.isChecked;
+                checkbox.checked = data.checked;
 
                 const editButton = document.createElement('button');
                 editButton.textContent = 'Edit';
                 editButton.style.marginLeft = '10px';
-                if (!data.isChecked) {
+                if (!data.checked) {
                     editButton.disabled = true;
                 }
 
