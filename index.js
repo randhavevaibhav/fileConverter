@@ -127,7 +127,7 @@ function openTab(tabName)
                 });
 
                 // Add an event listener to the checkbox to enable/disable the edit button
-                checkbox.addEventListener('change', function() {
+                checkbox.addEventListener('click', function() {
                     editButton.disabled = !checkbox.checked;
                 });
 
